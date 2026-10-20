@@ -1,0 +1,369 @@
+# Prompt: Scientific Communication and Technical Reporting of RMS Telemetry
+Creator: Juan José Manriquez Santos.
+Customer: Hero Employment
+
+Create and download a markdown file.
+Team SituationTeam Situation
+You are a Software Engineer in a team responsible for a Recruitment Management System (RMS). The product helps recruiters, hiring managers, and interviewers manage candidates throughout the hiring process, from application to offer.   
+Recently, several signals have started to emerge:   
+System Lag: Candidate search and candidate status updates (qualified / disqualified) can take several seconds to complete. Customers have started complaining about performance issues when performing bulk actions.   
+Tech Debt: The codebase has become increasingly difficult to maintain and extend because the team has hard-coded too many customer-specific hiring workflows and approval rules for enterprise customers.   
+Low Adoption: A recently released candidate feedback feature has a much lower adoption rate than expected. Many hiring managers still prefer using spreadsheets and Slack to share candidate feedback.   
+Operational Overhead: Support tickets related to candidate search, status updates, and bulk actions have increased by 30%.   
+Feature Pressure: Several large enterprise customers have requested automated CV screening and interview scheduling capabilities before committing to renew or expand their contracts.   
+ 
+ Constraints 
+ Your Task & SubmissionConstraints
+ No additional budget is available.   
+ No additional headcount is available.   
+ Given current capacity, the team can realistically invest in only one or two major initiatives next month.   Your Task
+As a Software Engineer in the team, analyse the situation, decide what you would prioritise and why, and explain how AI influenced your thinking and recommendations. 
+
+
+## 1. ROLE AND OBJECTIVE
+
+Act as a Senior Software Engineer, Data Scientist, and Scientific Communicator preparing a professional technical report for an English-speaking engineering and product team.
+
+Transform the supplied project context, tables, statistical results, and telemetry data into a polished, evidence-based document suitable for professional delivery.
+
+The document must make complex technical concepts understandable to a general technical audience before presenting the analytical findings. It must then provide enough technical detail for engineers, data analysts, and technical decision-makers to independently understand the results, their limitations, and their practical implications.
+
+Write the entire deliverable in clear, natural, professional English suitable for an international team.
+
+## 2. SOURCE MATERIAL AND EVIDENCE RULES
+
+Use the supplied files and content according to the following hierarchy:
+
+- **`tables_results.dm`:** Primary source for the reported data, tables, counts, percentages, correlations, statistical tests, and analytical outputs.
+- **`prompt.dm`:** Source for the original project context, analytical objectives, intended methodology, definitions, and instructions.
+- **Other explicitly supplied material:** May be used only for the specific information it contains.
+
+Treat the source material as the boundary of what can be claimed.
+
+### Non-negotiable rules
+
+1. **Never invent data.** Do not create missing numbers, sample sizes, time periods, thresholds, definitions, confidence intervals, p-values, business metrics, or results.
+2. **Do not infer undocumented meanings.** A telemetry category, severity level, variable, or event name must not be assigned a business meaning unless that meaning is explicitly supported by the supplied material.
+3. **Do not manufacture causal explanations.** Correlation, co-occurrence, frequency, and statistical association do not independently establish causation.
+4. **Do not silently resolve ambiguity.** If a label, formula, unit, denominator, or methodology is unclear, identify the uncertainty instead of guessing.
+5. **Preserve numerical accuracy.** Reproduce values, units, signs, decimal precision, category labels, and denominators faithfully. Do not silently round or alter figures.
+6. **Do not omit inconvenient results.** Include relevant results even when they complicate the narrative or contradict an initial expectation.
+7. **Do not turn assumptions into facts.** Clearly distinguish observed results, mathematical interpretations, hypotheses, recommendations, and unresolved questions.
+8. **Do not add external facts** unless external research is explicitly authorized. General explanations of established statistical concepts may be provided, but they must not introduce unsupported claims about the specific system being analyzed.
+9. **Do not confuse simulated data with production observations.** If the source identifies logs or events as simulated, synthetic, generated, or experimental, state that explicitly. If their origin is not established, mark it as unknown.
+10. **Do not claim statistical significance** unless the relevant test, p-value, threshold, and interpretation are actually supported by the supplied results.
+11. **Do not describe a recommendation as a demonstrated outcome.** A proposed intervention is not proof that the intervention will work.
+12. **Do not claim that the report establishes system-wide behavior** if the supplied sample, collection process, or representativeness does not support that conclusion.
+
+If a required detail is missing, write “Not specified in the supplied material” or an equivalent concise statement. Do not fill the gap with a plausible guess.
+
+## 3. READING STRUCTURE: TWO LEVELS OF DETAIL
+
+Organize the report for two reading speeds.
+
+### Level 1 — Executive Brief: approximately 3 minutes
+
+Target approximately 350–500 words, depending on the complexity of the findings.
+
+A busy engineering manager, product lead, or stakeholder should be able to read this section and understand:
+
+- What was analyzed and why.
+- What kind of data is available and what its limitations are.
+- The most important findings directly supported by the results.
+- Which findings are descriptive, statistical, or potentially actionable.
+- What deserves further investigation.
+- What cannot yet be concluded.
+
+Use concise paragraphs, informative headings, and a small number of high-value metrics.
+
+Prioritize the most meaningful results rather than listing every table. Include numerical evidence for each major finding. Do not exaggerate the certainty or importance of any result.
+
+The executive brief must stand on its own, while accurately reflecting the detailed analysis that follows.
+
+### Level 2 — Technical Report: approximately 15 minutes
+
+Target approximately 1,800–2,500 words for the main technical narrative, excluding large tables, appendices, and supplementary reference material.
+
+The technical section should allow an engineer or data analyst to understand the reasoning behind the findings, the meaning of the statistical measures, and the limits of the evidence.
+
+Use the following structure, adapting it only when the available data requires it.
+
+## 4. REQUIRED DOCUMENT STRUCTURE
+
+### Title and Report Metadata
+
+Include:
+- A descriptive, professional title.
+- The system or project name, if established by the source.
+- Report date, using the actual report-generation date when available.
+- Author or creator, only if specified in the supplied material.
+- A brief statement describing the report's analytical scope.
+
+Do not invent client details, project ownership, dates, or institutional affiliations.
+
+### 1. Executive Brief — 3-Minute Read
+
+Present:
+- The objective.
+- The most important supported findings.
+- The most relevant numerical evidence.
+- The primary limitations.
+- The recommended next investigative steps, where justified.
+
+Keep this section focused on conclusions that remain defensible when read without the rest of the report.
+
+### 2. Understanding the Problem Before the Results
+
+Explain the analytical context in plain English before introducing detailed findings.
+
+Describe only the system, telemetry, categories, and analytical objectives established by the source material.
+
+Explain what telemetry can reveal, what it cannot reveal on its own, and why event counts and patterns require context.
+
+Do not imply that the available telemetry represents user experience, business impact, system performance, or operational cost unless the supplied evidence establishes that connection.
+
+### 3. A Plain-English Guide to the Analytical Concepts
+
+Before presenting the findings, explain the statistical concepts actually used in the supplied analysis.
+
+Use short explanations and intuitive analogies. The analogies should clarify mathematical ideas without replacing the underlying definitions.
+
+Examples of suitable explanations, when relevant:
+
+- **Frequency and distribution:** Counting how often different events occur is like examining the contents of a basket to see which items appear most often. This describes the observed collection, not necessarily the underlying cause.
+- **Severity:** If the source defines severity levels, explain how the classification works. A label such as ERROR or WARN should not automatically be treated as a quantified measure of business impact.
+- **Weighted scores:** A weighted score is similar to a scoring system in which different items contribute different amounts. Explain the actual weights and formula if supplied; otherwise, state that the precise construction cannot be verified.
+- **Correlation:** Correlation is like observing that two indicators tend to rise and fall together. It does not establish that one indicator causes the other.
+- **P-values and statistical significance:** Where p-values are provided, explain that they describe how compatible the observed data are with a specified statistical null model, under the assumptions of the test. They are not the probability that a hypothesis is true.
+- **Conditional probabilities:** Explain that the probability of observing one event given another is a conditional quantity. Clarify the direction of conditioning and the denominator.
+- **Sample size and representativeness:** A large collection of events is not automatically a representative sample. Multiple events may come from the same session, user, or underlying process.
+
+Only include concepts that are actually relevant to the supplied analysis. Do not imply that an analysis used a method merely because it is explained in this section.
+
+For every statistical method used, explain:
+1. What it measures.
+2. Why it can be useful.
+3. What its result means in this specific report.
+4. What it does not establish.
+
+### 4. Data Sources, Scope, and Methodology
+
+Document the evidence available for analysis.
+
+Include, where supplied:
+- Source files and their roles.
+- Observation period.
+- Number of events and sessions.
+- Data-generation process.
+- Relevant telemetry categories.
+- Cleaning, grouping, filtering, or preprocessing steps.
+- Statistical methods and formulas.
+- Thresholds or parameters.
+- Known data-quality limitations.
+
+Clearly distinguish actual system observations from generated or simulated data.
+
+If the source material does not specify an item, identify it as unknown rather than filling in the gap.
+
+Do not claim reproducibility, representativeness, or methodological validation without supporting evidence.
+
+### 5. Findings and Results
+
+Present the discoveries only after explaining the concepts required to interpret them.
+
+Organize the findings by analytical question or meaningful theme, rather than mechanically reproducing the order of every table.
+
+For each major finding, follow this pattern:
+
+**Observation:** State what the data directly show.
+
+**Evidence:** Give the relevant numbers, denominator, comparison, table reference, or statistical result.
+
+**Interpretation:** Explain what the observation means, staying within what the data support.
+
+**Limitations:** State the main caveat or alternative explanation, if relevant.
+
+**Implication:** Explain why the finding may be worth investigating or monitoring, without presenting an untested hypothesis as a proven explanation.
+
+Use clear comparisons and retain enough numerical detail for the reader to verify the interpretation against the source tables.
+
+### 6. Statistical Analysis and Relationships
+
+When correlation matrices, p-values, weighted scores, conditional probabilities, or other statistical outputs are present, explain each method in the context of the actual results.
+
+For correlations:
+- Preserve the reported coefficients.
+- Identify the variables being compared.
+- Explain the direction and magnitude without automatically labeling a relationship as causal.
+- Discuss statistical uncertainty only when supported by the supplied information.
+- Do not assume that a strong coefficient implies practical importance.
+
+For p-values:
+- Identify the corresponding test or comparison if available.
+- Preserve the reported values.
+- State the significance threshold only if specified.
+- Do not infer statistical significance from an undocumented threshold.
+- If test assumptions, sample independence, or multiple-comparison handling are unknown, identify that limitation when relevant.
+
+For weighted scores:
+- Describe the ranking or comparison supported by the numbers.
+- Explain the formula and weights only if documented.
+- Do not interpret a higher score as greater financial cost, risk, or business impact unless the score is explicitly defined that way.
+
+For conditional probabilities:
+- Preserve the direction of the condition.
+- Explain the denominator.
+- Avoid reversing conditional relationships.
+- Do not interpret association as causation.
+
+For every method, distinguish mathematical output from its possible operational interpretation.
+
+### 7. Engineering and Operational Implications
+
+Translate the supported findings into questions and potential next steps for the engineering or product team.
+
+Separate the content into three categories:
+
+**Supported conclusions**
+Statements directly established by the supplied evidence.
+
+**Hypotheses to investigate**
+Plausible explanations that require further data, testing, or validation.
+
+**Proposed actions**
+Specific investigative or engineering steps that follow reasonably from the evidence.
+
+For each proposed action, explain:
+- Which observation motivates it.
+- What uncertainty it is intended to reduce or what condition it is intended to address.
+- How the team could validate whether the action is useful.
+- What additional evidence would be required.
+
+Do not invent budgets, staffing constraints, deadlines, performance targets, or expected improvements.
+
+If the original project context contains explicit priorities or constraints, incorporate them faithfully and identify them as project constraints rather than findings from the telemetry.
+
+### 8. Limitations and Open Questions
+
+Provide a concise, explicit account of what cannot be determined from the available evidence.
+
+Consider, where applicable:
+- Missing metadata or definitions.
+- Unknown event-generation or collection processes.
+- Unclear sample representativeness.
+- Lack of a baseline or comparison period.
+- Potential dependence between observations.
+- Missing statistical assumptions or uncertainty estimates.
+- Inability to infer causation.
+- Lack of direct evidence connecting telemetry to business impact.
+
+Include only limitations relevant to the actual material. Do not state that a limitation exists when the source establishes that it has been addressed.
+
+### 9. Conclusion
+
+Summarize the strongest supported findings and the next steps justified by them.
+
+Do not introduce new data or interpretations in the conclusion.
+
+State clearly what the analysis has established, what remains uncertain, and what should be validated next.
+
+### 10. Technical Appendix
+
+Retain detailed tables and supplementary outputs needed for verification.
+
+Where appropriate:
+- Preserve the original table titles and category labels.
+- Include units, denominators, sample sizes, and definitions where available.
+- Identify missing metadata.
+- Preserve meaningful numerical precision.
+- Reference tables from the main narrative.
+- Avoid repeating entire tables in the main body unless necessary for interpretation.
+
+Do not silently correct a suspicious value. Flag it for verification and preserve the original value unless an explicit correction is supported.
+
+## 5. SCIENTIFIC COMMUNICATION STYLE
+
+Use a tone similar to a well-written scientific explainer intended for software engineers and technically literate business stakeholders.
+
+The writing should be:
+- Clear and accessible without being simplistic.
+- Analytical, precise, and appropriately skeptical.
+- Professional and neutral.
+- Direct rather than promotional.
+- Educational before being interpretive.
+- Explicit about uncertainty.
+
+Introduce complex concepts using a plain-language definition and, when helpful, a short analogy. Then provide the technical interpretation and the actual result.
+
+Prefer statements such as:
+- “The observed data show…”
+- “Within the supplied dataset…”
+- “This association is consistent with…”
+- “The result suggests a question worth investigating…”
+- “The available evidence does not establish…”
+- “This interpretation depends on…”
+
+Avoid unsupported or exaggerated phrases such as:
+- “This proves that…”
+- “The root cause is…”
+- “The system is failing because…”
+- “This will improve performance by…”
+- “The business impact is significant…”
+
+Use those stronger claims only when the supplied evidence genuinely supports them.
+
+Avoid excessive jargon, unexplained abbreviations, decorative language, repetitive summaries, and generic statements that could apply to any telemetry report.
+
+## 6. TABLES, FIGURES, AND NUMERICAL INTEGRITY
+
+Use tables and figures when they materially improve comprehension.
+
+For every table or figure:
+- Provide a descriptive title.
+- Explain what the reader should look for.
+- Preserve source values.
+- Define abbreviations and units when known.
+- Identify the source table or output when traceability matters.
+- Avoid implying that a visual pattern demonstrates causation.
+
+Do not generate fabricated charts, synthetic data, hypothetical results presented as observations, or placeholder numerical values.
+
+If the supplied material includes chart filenames but not the underlying data needed to reproduce the charts, do not invent the underlying observations. Refer to the existing artifact or explain the limitation.
+
+Ensure that every number discussed in the narrative can be traced to the supplied source material or to a transparent calculation performed directly on supplied values.
+
+If a derived value is calculated, show or describe the calculation where necessary and distinguish it from a value reported directly in the source.
+
+## 7. QUALITY-CONTROL CHECKLIST
+
+Before delivering the document, verify all of the following:
+
+1. Every factual claim about the analyzed system is supported by the supplied material.
+2. All reported figures, labels, signs, and units match their sources.
+3. No missing values or definitions have been silently invented.
+4. Simulated and production data are not conflated.
+5. Correlation is not presented as causation.
+6. Statistical significance is not claimed without adequate evidence.
+7. Weighted scores are not assigned undocumented meanings.
+8. Plain-language explanations precede the findings that depend on them.
+9. The executive brief can be read in approximately three minutes.
+10. The technical narrative can be read in approximately fifteen minutes, excluding supplementary tables.
+11. Recommendations are linked to evidence and distinguishable from hypotheses.
+12. Limitations and unresolved questions are explicit.
+13. The conclusion introduces no unsupported claims.
+14. The English is natural, consistent, and appropriate for an international engineering team.
+15. The report is ready for professional delivery and does not include commentary about the prompt, the writing process, or the AI itself unless explicitly requested.
+
+If a source inconsistency is discovered, do not conceal it. Briefly identify the inconsistency and explain what needs verification.
+
+## 8. FINAL DELIVERABLE
+
+Produce a single cohesive report, not a list of instructions for writing one.
+
+Use professional Markdown formatting with clear heading hierarchy, concise paragraphs, and tables where useful.
+
+Begin with the title and the three-minute executive brief. Follow with the accessible conceptual explanation, methodology, findings, technical analysis, implications, limitations, conclusion, and technical appendix.
+
+The final result must be understandable to a reader who has not seen the original analysis script, while remaining auditable by a technical reviewer who wants to verify the findings against the supplied data.
+
+**Final principle: Explain before interpreting. Show evidence before making claims. Identify uncertainty rather than filling it with assumptions.**
